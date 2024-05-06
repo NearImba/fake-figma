@@ -1,5 +1,8 @@
-# README
+# Paimon
+根据V3版本swagger.json文件自动生成Typescript接口代码
+## 用法
+1. 将openAPI json文件放入工程内，必须以`.swagger.json`或者`.api.json`结尾
+![将openAPI json文件放入工程内](images/step1.png)
 
-## 功能
-1. 在 `ts/tsx` 文件中输入 `//$` 跟上需要生成的接口地址信息，即可获取提示。例如，您需要查询 `/user/login` 接口的相关代码，您需要输入 `//$/user/login$`，可以手动切换提示接口并按 Tab 键启用提示。
-2. 您可以在项目根目录添加 `fetch.tpl.hbs` 文件来自定义您的接口代码生成结果。
+2. 输入`//$`并紧跟接口地址触发提示
+![运行示意图](images/show.gif)
