@@ -10,9 +10,10 @@ export function addInterface(items: Model[], dir: string) {
     const ref = allInterfaceMapCollection[dir];
     items.forEach(itm => {
         const ind = ref.findIndex(item => itm.name === item.name);
-        if (ind === -1) {
-            ref.push(itm);
+        if (ind >= 0) {
+            ref.splice(ind, 1);
         }
+        ref.push(itm);
     });
 }
 
@@ -41,12 +42,13 @@ export function addApi(items: Operation[], dir: string, server?: string) {
     const ref = allApiMapCollection[dir];
     items.forEach(itm => {
         const ind = ref.findIndex(item => itm.path === item.path);
-        if (ind === -1) {
-            if (server) {
-                itm.basePath = server;
-            }
-            ref.push(itm);
+        if (ind >= 0) {
+            ref.splice(ind, 1);
         }
+        if (server) {
+            itm.basePath = server;
+        }
+        ref.push(itm);
     });
 }
 

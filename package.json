@@ -1,9 +1,10 @@
 {
-  "name": "paimon.api",
-  "displayName": "paimon.api",
+  "name": "paimon",
+  "displayName": "paimon",
   "description": "api auto generator",
   "publisher": "nearimba93",
   "version": "0.0.1",
+  "repository": "https://github.com/NearImba/paimon",
   "icon": "logo.png",
   "engines": {
     "vscode": "^1.83.0"
