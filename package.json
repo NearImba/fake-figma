@@ -1,0 +1,72 @@
+{
+  "name": "paimon.api",
+  "displayName": "paimon.api",
+  "description": "api auto generator",
+  "publisher": "nearimba93",
+  "version": "0.0.1",
+  "icon": "logo.png",
+  "engines": {
+    "vscode": "^1.83.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pm.autoGenApi",
+        "title": "自动填入api"
+      },
+      {
+        "command": "pm.updateGenApiTypes",
+        "title": "自动更新api产生的types"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "pm.updateGenApiTypes",
+          "when": "resourceFilename =~ /.tsx?$/"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts --fix",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@apidevtools/json-schema-ref-parser": "^11.1.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/mocha": "^10.0.3",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.83.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "@vscode/test-electron": "^2.3.6",
+    "axios": "^1.6.2",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.52.0",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10",
+    "handlebars": "^4.7.8",
+    "handlebars-loader": "^1.7.3",
+    "mocha": "^10.2.0",
+    "node-fetch": "^3.3.2",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
